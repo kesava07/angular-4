@@ -1,0 +1,9 @@
+<div>
+    <h1 class="text-center">Welcome to About page
+        <app-button (change)="handleAboutClick()" [title]="buttonTitle"></app-button>
+    </h1>
+
+    <div class="container-fluid">
+        <app-table [data]="todos"></app-table>
+    </div>
+</div>
