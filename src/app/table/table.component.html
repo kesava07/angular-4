@@ -4,6 +4,7 @@
             <th>Id</th>
             <th>Title</th>
             <th>Description</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -11,6 +12,9 @@
             <td>{{post.id}}</td>
             <td>{{post.title}}</td>
             <td>{{post.body}}</td>
+            <td>
+                <button class="btn btn-sm btn-danger" (click)="handlePassData(post)">delete</button>
+            </td>
         </tr>
     </tbody>
 </table>

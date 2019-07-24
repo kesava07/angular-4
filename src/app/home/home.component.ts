@@ -21,5 +21,8 @@ export class HomeComponent {
   handleHomeClick() {
     console.log("button was clicked in home page")
   }
+  handleGetData(data) {
+    alert(data.title)
+  }
 
 }

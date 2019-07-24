@@ -4,6 +4,6 @@
     </h1>
 
     <div class="container">
-        <app-table [data]="todos"></app-table>
+        <app-table [data]="todos" (clicked)="handleGetData($event)"></app-table>
     </div>
 </div>
