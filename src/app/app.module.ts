@@ -14,6 +14,7 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { HomeComponent } from './home/home.component';
 import { TableComponent } from './table/table.component';
 import { ButtonComponent } from './button/button.component';
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ButtonComponent } from './button/button.component';
     NoPageFoundComponent,
     HomeComponent,
     TableComponent,
-    ButtonComponent
+    ButtonComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

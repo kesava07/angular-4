@@ -4,6 +4,23 @@
     </h1>
 
     <div class="container">
-        <app-table [data]="todos" (clicked)="handleGetData($event)"></app-table>
+        <!-- <app-table [tableData]="todos" (clickButton)="handleDeleteData($event)"></app-table> -->
+
+        <!-- <app-card>
+            <ng-container class="header">
+                header
+            </ng-container>
+            <ng-container class="body">
+                Body
+            </ng-container>
+            <ng-container class="footer">
+                footer
+            </ng-container>
+        </app-card> -->
+
+        <div *ngIf="courses.length > 0; then listOfCourses else noCourses"></div>
+        <ng-template #listOfCourses>The list of courses is ready</ng-template>
+        <ng-template #noCourses>No courses found</ng-template>
+
     </div>
 </div>

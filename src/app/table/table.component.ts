@@ -7,9 +7,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TableComponent implements OnInit {
 
-  @Input() data: any[];
+  @Input('tableData') data: any[];
 
-  @Output() clicked = new EventEmitter();
+  @Output("clickButton") clicked = new EventEmitter();
 
   selected: any
 
@@ -22,3 +22,10 @@ export class TableComponent implements OnInit {
     this.clicked.emit(data)
   }
 }
+
+export interface selectedTableData {
+  userId: number,
+  id: number,
+  title: string,
+  body: string
+};
