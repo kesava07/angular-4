@@ -4,8 +4,13 @@
     </h1>
 
     <div class="container">
+
+        <!-- Passing events from parent to child -->
         <!-- <app-table [tableData]="todos" (clickButton)="handleDeleteData($event)"></app-table> -->
 
+        <!-- #################### -->
+
+        <!-- passing the data to child without mentioning the data in component.ts -->
         <!-- <app-card>
             <ng-container class="header">
                 header
@@ -18,9 +23,48 @@
             </ng-container>
         </app-card> -->
 
-        <div *ngIf="courses.length > 0; then listOfCourses else noCourses"></div>
+        <!-- #################### -->
+
+        <!-- *ngIf usagae -->
+        <!-- <div *ngIf="courses.length > 0; then listOfCourses else noCourses"></div>
         <ng-template #listOfCourses>The list of courses is ready</ng-template>
-        <ng-template #noCourses>No courses found</ng-template>
+        <ng-template #noCourses>No courses found</ng-template> -->
+
+        <!-- #################### -->
+
+        <!-- hidden property -->
+        <!-- <div [hidden]="courses.length === 0">
+            List of courses
+        </div>
+        <div [hidden]="courses.length > 0">
+            No course found
+        </div> -->
+
+        <!-- #################### -->
+
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link " href="" [class.active]="viewMode == 'home'" data-toggle="pill"
+                    (click)="viewMode = 'home'">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="" [class.active]="viewMode == 'about'" data-toggle="pill"
+                    (click)="viewMode = 'about'">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="" [class.active]="viewMode == 'contact'" data-toggle="pill"
+                    (click)="viewMode = 'contact'">Contact Us</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" [ngSwitch]="viewMode">
+            <div *ngSwitchCase="'home'" class="tab-pane container" [class.active]="viewMode == 'home'" id="home">home
+            </div>
+            <div *ngSwitchCase="'about'" class="tab-pane container fade" [class.active]="viewMode == 'about'"
+                [class.show]="viewMode == 'about'" id="menu1">Menu 1</div>
+            <div *ngSwitchCase="'contact'" [class.active]="viewMode == 'contact'" [class.show]="viewMode == 'contact'"
+                class="tab-pane container fade" id="menu2">Menu 2</div>
+        </div>
 
     </div>
 </div>

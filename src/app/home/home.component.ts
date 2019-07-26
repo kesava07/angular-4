@@ -12,6 +12,7 @@ export class HomeComponent {
   todos: any[];
   buttonTitle = "Click in Home";
   courses=[1,2];
+  viewMode = "home"
 
   constructor(http: Http) {
     http.get("https://jsonplaceholder.typicode.com/posts")
