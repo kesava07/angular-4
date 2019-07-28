@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="col-md-6 m-auto">
+        <form #f="ngForm" (ngSubmit)="submitForm(f)">
+            <div ngModelGroup="contact" #contact="ngModelGroup">
+
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input minlength="5" maxlength="10" required ngModel name="firstName"
+                        #firstName="ngModel" id="firstName" type="text" class="form-control" placeholder="first name"
+                        (change)="log(firstName)" />
+
+                    <div class="text-danger" *ngIf="firstName.touched && !firstName.valid">
+                        <div *ngIf="firstName.errors.required">
+                            First name is reuired
+                        </div>
+                        <div *ngIf="firstName.errors.minlength">
+                            First name shold have atleast
+                            {{firstName.errors.minlength.requiredLength}} charecters
+                        </div>
+                        <!-- <div *ngIf="firstName.errors.pattern">
+                            First name doesn't matched the pattern
+                        </div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea minlength="10" maxlength="20" required ngModel name="comment" #comment="ngModel" id="comment" placeholder="Comments"
+                        class="form-control" rows="10" cols="30" (change)="log(comment)"></textarea>
+
+                        <div class="text-danger" *ngIf="comment.touched && !comment.valid">
+                                <div *ngIf="comment.errors.required">
+                                    comment is reuired
+                                </div>
+                                <div *ngIf="comment.errors.minlength">
+                                        comment shold have atleast
+                                    {{firstName.errors.minlength.requiredLength}} charecters
+                                </div>
+                                <!-- <div *ngIf="firstName.errors.pattern">
+                                    First name doesn't matched the pattern
+                                </div> -->
+                            </div>
+
+                </div>
+            </div>
+            <button [disabled]="!f.valid" class="btn btn-primary">Submit</button>
+
+            <div *ngIf="!contact.valid && f.submitted">
+                <div class="alert alert-danger text-center mt-2">
+                    Please fill all the details
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

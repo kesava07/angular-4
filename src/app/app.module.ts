@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { TableComponent } from './table/table.component';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
+import { InputFormatDirective } from './input-format.directive';
+import { TemplateFormsComponent } from './template-forms/template-forms.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { CardComponent } from './card/card.component';
     HomeComponent,
     TableComponent,
     ButtonComponent,
-    CardComponent
+    CardComponent,
+    InputFormatDirective,
+    TemplateFormsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,7 @@ import { CardComponent } from './card/card.component';
     RouterModule.forRoot([
       { path: "", component: HomeComponent },
       { path: "about", component: AboutComponent },
+      { path: "form", component: TemplateFormsComponent },
       { path: "**", component: NoPageFoundComponent }
     ]),
     HttpModule

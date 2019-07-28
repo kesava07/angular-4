@@ -5,8 +5,49 @@
 
     <div class="container">
 
+        <!-- ************ directives ***************** -->
+
+
+        <!-- ************* custom directive *************** -->
+
+        <input [appInputFormat]="'uppercase'" type="text"/>
+
+
+        <!-- ************** safe traversal operator *************** -->
+
+        <!-- <span *ngIf="task.sub">{{task.sub.name}}</span> -->
+
+        <!-- <span>{{task.sub?.name}}</span> -->
+
+
+        <!-- *************** ngStyle ***************** -->
+
+        <!-- <button [ngStyle]="{
+            'backgroundColor':canSave? 'dodgerblue' :'gray',
+            'color':canSave ? 'white':'black'
+        }">
+            click me
+        </button> -->
+
+
+        <!-- *************** ngFor examples ********************* -->
+        <!-- <button (click)="addCourse()">ADD</button>
+
+        <button (click)="getCourses()">get courses</button>
+
+        <ul>
+            <li *ngFor="let course of courses; odd as isOdd ; index as dataIndex ;trackBy:trackCourse"
+                [style.color]="isOdd ? 'red':null">
+                {{dataIndex}} - {{course.name}} &nbsp; &nbsp; <button (click)="handleEdit(course)">Edit</button>
+            </li>
+        </ul> -->
+
         <!-- Passing events from parent to child -->
         <!-- <app-table [tableData]="todos" (clickButton)="handleDeleteData($event)"></app-table> -->
+
+
+
+
 
         <!-- #################### -->
 
@@ -23,6 +64,10 @@
             </ng-container>
         </app-card> -->
 
+
+
+
+
         <!-- #################### -->
 
         <!-- *ngIf usagae -->
@@ -32,6 +77,10 @@
 
         <!-- #################### -->
 
+
+
+
+
         <!-- hidden property -->
         <!-- <div [hidden]="courses.length === 0">
             List of courses
@@ -40,9 +89,15 @@
             No course found
         </div> -->
 
-        <!-- #################### -->
 
-        <ul class="nav nav-pills">
+
+
+
+
+        <!-- #################### -->
+        <!-- switch example -->
+
+        <!-- <ul class="nav nav-pills">
             <li class="nav-item">
                 <a class="nav-link " href="" [class.active]="viewMode == 'home'" data-toggle="pill"
                     (click)="viewMode = 'home'">Home</a>
@@ -58,13 +113,25 @@
         </ul>
 
         <div class="tab-content" [ngSwitch]="viewMode">
-            <div *ngSwitchCase="'home'" class="tab-pane container" [class.active]="viewMode == 'home'" id="home">home
+            <div *ngSwitchCase="'home'" class="tab-pane container" [ngClass]="{'active':viewMode == 'home'}" id="home">
+                home
             </div>
-            <div *ngSwitchCase="'about'" class="tab-pane container fade" [class.active]="viewMode == 'about'"
-                [class.show]="viewMode == 'about'" id="menu1">Menu 1</div>
-            <div *ngSwitchCase="'contact'" [class.active]="viewMode == 'contact'" [class.show]="viewMode == 'contact'"
+            <div *ngSwitchCase="'about'" class="tab-pane container fade" [ngClass]="{'active show':viewMode == 'about'}"
+                id="menu1">Menu 1</div>
+            <div *ngSwitchCase="'contact'" [ngClass]="{'active show':viewMode == 'contact'}"
                 class="tab-pane container fade" id="menu2">Menu 2</div>
-        </div>
+        </div> -->
+
+        <!--***************** small example of ngSwitch *******************-->
+        <!-- <button class="btn btn-sm btn-primary" (click)="handleView('home')">Click home</button>
+        <button class="btn btn-sm btn-danger" (click)="handleView('about')">click about</button>
+
+        <div [ngSwitch]="viewMode">
+            <h1 *ngSwitchCase="'home'">Home</h1>
+            <h1 *ngSwitchCase="'about'">About</h1>
+        </div> -->
+
+
 
     </div>
 </div>
